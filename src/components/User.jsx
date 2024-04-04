@@ -15,6 +15,7 @@ export const User = () => {
     const handleCheck = (e) => {
         e.preventDefault();
         check(secret, code);
+        setCode("");
     }
 
 
