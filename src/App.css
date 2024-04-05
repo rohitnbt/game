@@ -1,10 +1,48 @@
-#root {
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 2rem;
-  text-align: center;
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
 }
 
 body {
-  background-color: gray;
+  background-color: #0f7173;
+  min-height: 100vh;
+}
+
+label {
+  color: #fff;
+  font-weight: 700;
+  font-size: 30px;
+}
+
+input {
+  padding: 5px 10px;
+  border-radius: 10px;
+  border: none;
+  outline: none;
+}
+
+button {
+  background-color: #F05D5E;
+  color: #fff;
+  padding: 5px 10px;
+  border-radius: 10px;
+  border: none;
+  outline: none;
+  cursor: pointer;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  align-items: start;
+}
+
+.app {
+  display: flex;
+  justify-content: space-between;
+  max-width: 1200px;
+  margin: auto;
+  padding: 100px 20px;
 }
