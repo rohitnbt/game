@@ -1,25 +1,22 @@
 export const check = (secret, code) => {
-    console.warn("secret :"+secret);
-    console.warn("code :"+code);
-    let cow = 0;
-    let bull = 0;
-    let count = 0;
-    for(let i = 0; i<secret.length; i++) {
-        if(parseInt(secret.charAt(i))===parseInt(code.charAt(i)))
-        {
-            bull++;
-        }
-        for(let j=0; j<secret.length; j++) {
-            if(parseInt(secret.charAt(i))===parseInt(code.charAt(j)))
-                {
-                    count++;
-                    break;
-                }
-        }
+  secret = secret.toString();
+  code = code.toString();
+  console.log("secret :", typeof secret);
+  console.log("code :", typeof code);
+  let cow = 0;
+  let bull = 0;
+  let count = 0;
+  for (let i = 0; i < secret.length; i++) {
+    if (secret[i] === code[i]) {
+      bull++;
     }
-    cow = count - bull;
-    console.warn("Bull :"+bull);
-    // console.warn("Count :"+count);
-    console.warn("cow :"+cow);
-    alert("Bull :"+bull+" cow :"+cow)
-}
+    if (secret.includes(code[i])) {
+      count++;
+    }
+  }
+  cow = count - bull;
+  console.warn("Bull :" + bull);
+  // console.warn("Count :"+count);
+  console.warn("cow :" + cow);
+  alert("Bull :" + bull + " cow :" + cow);
+};
