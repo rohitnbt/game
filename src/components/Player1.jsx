@@ -6,7 +6,6 @@ export const Player1 = ({user, setUser}) => {
     const [isDisabled, setIsDisabled] = useState(false);
     useEffect(()=>{
         setIsDisabled(user)
-        console.warn("Player 1/ User : "+user+" isDisabled : "+isDisabled);
     },[user])
   return (
     <div className={`player1 ${user ? "inactive" :"" }`}>

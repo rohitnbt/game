@@ -14,8 +14,5 @@ export const check = (secret, code) => {
       cow++;
     }
   }
-  console.warn("Bull :" + bull);
-  // console.warn("Count :"+count);
-  console.warn("cow :" + cow);
   alert("Bull :" + bull + " cow :" + cow);
 };
