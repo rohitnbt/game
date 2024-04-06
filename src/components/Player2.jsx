@@ -8,9 +8,9 @@ export const Player2 = ({user, setUser}) => {
         console.warn("Player 2/ User : "+user+" isDisabled : "+isDisabled);
     },[user])
   return (
-    <div className='player2'>
+    <div className={`player2 ${user ? "inactive" :"" }`}>
         <h1>Player 2</h1>
-        <User isDisabled={isDisabled} setUser={setUser}/>
+        <User isDisabled={isDisabled} setUser={setUser} player="player 2"/>
     </div>
   )
 }
