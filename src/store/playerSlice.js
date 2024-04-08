@@ -2,6 +2,8 @@ import { createSlice } from '@reduxjs/toolkit'
 
 const initialState = {
   value: false,
+  bull: null,
+  cow: null,
 }
 
 export const playerSlice = createSlice({
@@ -11,10 +13,15 @@ export const playerSlice = createSlice({
     setUser: (state) => {
       state.value = !state.value
     },
+    setCow: (state,action) => {
+      state.cow = action.payload
+    },
+    setBull: (state,action) => {
+      state.bull = action.payload
+    },
   },
 })
 
-// Action creators are generated for each case reducer function
-export const { setUser } = playerSlice.actions
+export const { setUser, setCow, setBull } = playerSlice.actions
 
 export default playerSlice.reducer

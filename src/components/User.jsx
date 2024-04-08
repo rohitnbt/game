@@ -2,8 +2,7 @@ import React from 'react'
 import { useState } from 'react'
 import { check } from '../function/check';
 import { useDispatch } from 'react-redux'
-import { setUser } from '../store/playerSlice';
-
+import { setUser, setBull, setCow } from '../store/playerSlice';
 export const User = ({isDisabled, player}) => {
     const [secret, setSecret] = useState("");
     const [code, setCode] = useState("");
@@ -21,12 +20,13 @@ export const User = ({isDisabled, player}) => {
     const handleCheck = (e) => {
         e.preventDefault();
         if(code) {
-            check(secret, code);
+            const { bull, cow } = check(secret, code);
             setCode("");
             dispatch(setUser());
+            dispatch(setCow(cow));
+            dispatch(setBull(bull));
         }
     }
-
 
   return (
     <>
@@ -35,7 +35,7 @@ export const User = ({isDisabled, player}) => {
             <div className="input-field">
                 <form onSubmit={handleSecrate}>
                     <label htmlFor="secret">Secret Code</label>
-                    <input type="number" name='secret' placeholder={`Enter secret code for ${player}`} value={secretValue} onChange={(e)=>setSecretValue(e.target.value)} disabled={isDisabled}/>
+                    <input type="number" name='secret' placeholder={`Enter secret code for ${player}`} value={secretValue} onChange={(e)=>{if (/^\d{0,4}$/.test(e.target.value)) {setSecretValue(e.target.value)}}} disabled={isDisabled}/>
                     <button disabled={isDisabled}>Submit</button>
                 </form>
             </div> 
@@ -43,7 +43,7 @@ export const User = ({isDisabled, player}) => {
         <div className="input-field">
             <form onSubmit={handleCheck}>
                 <label htmlFor="code">Guss Code</label>
-                <input type="number" name='code' placeholder={`Enter guss code for ${player}`} value={code} onChange={(e)=>setCode(e.target.value)} disabled={isDisabled}/>
+                <input type="number" name='code' placeholder={`Enter guss code for ${player}`} value={code} onChange={(e)=>{if (/^\d{0,4}$/.test(e.target.value)) {setCode(e.target.value)}}} disabled={isDisabled}/>
                 <button disabled={isDisabled}>Check</button>
             </form>
         </div>

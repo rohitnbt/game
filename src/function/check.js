@@ -1,4 +1,6 @@
+
 export const check = (secret, code) => {
+
   secret = secret.toString().split("");
   code = code.toString();
   console.log("secret :", typeof secret);
@@ -14,5 +16,6 @@ export const check = (secret, code) => {
       cow++;
     }
   }
-  alert("Bull :" + bull + " cow :" + cow);
+  // alert("Bull :" + bull + " cow :" + cow);
+  return { cow, bull };
 };

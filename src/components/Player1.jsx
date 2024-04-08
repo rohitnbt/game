@@ -1,8 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import { User } from './User'
 
-
-export const Player1 = ({user, setUser}) => {
+export const Player1 = ({user}) => {
     const [isDisabled, setIsDisabled] = useState(false);
     useEffect(()=>{
         setIsDisabled(user)
