@@ -4,6 +4,7 @@ import { Player1 } from "./components/Player1";
 import { Player2 } from "./components/Player2";
 import { useSelector } from 'react-redux'
 import { Result } from "./components/Result";
+import { SinglePlayer } from "./components/SinglePlayer";
 
 function App() {
   const [show, setShow] = useState(false);
@@ -24,6 +25,8 @@ function App() {
       {
         show && <Result cow={cow} bull={bull} show={show} setShow={setShow} />
       }
+
+      {/* <SinglePlayer /> */}
     </div>
   );
 }

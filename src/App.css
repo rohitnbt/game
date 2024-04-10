@@ -67,6 +67,7 @@ h1 {
 }
 
 .player1 {
+  position: relative;
   text-align: center;
   min-height: 100vh;
   display: flex;
@@ -78,6 +79,7 @@ h1 {
 }
 
 .player2 {
+  position: relative;
   text-align: center;
   min-height: 100vh;
   display: flex;
@@ -86,6 +88,18 @@ h1 {
   flex-direction: column;
   background-color: #F05D5E;
   width: 50%;
+}
+
+.single-player {
+  position: relative;
+  text-align: center;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  background: linear-gradient(90deg, #F05D5E 5%, #0b9093 5%, #0b9093 95%, #F05D5E 95%);
+  width: 100%;
 }
 
 .inactive {
@@ -124,6 +138,27 @@ h2 {
   aspect-ratio: 1;
   border-radius: 10px;
   padding: 20px;
+}
+
+.score {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  background: #1C0221;
+  padding: 10px;
+  border-radius: 10px;
+  text-align: start;
+  box-shadow: 0px 0px 10px #00000050;
+}
+
+h3 {
+  font-size: 12px;
+  color: #ffffff;
+}
+
+p {
+  font-size: 12px;
+  color: #ffffff;
 }
 
 @media (max-width: 767px) {

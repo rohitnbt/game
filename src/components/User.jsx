@@ -1,17 +1,17 @@
 import React from 'react'
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import { check } from '../function/check';
-import { useDispatch } from 'react-redux'
-import { setUser, setBull, setCow } from '../store/playerSlice';
+import { useDispatch, useSelector } from 'react-redux'
+import { setUser, setBull, setCow, setPlayerOneScore, setPlayerTwoScore } from '../store/playerSlice';
 export const User = ({isDisabled, player}) => {
     const [secret, setSecret] = useState("");
     const [code, setCode] = useState("");
     const [secretValue, setSecretValue] = useState("");
     const dispatch = useDispatch()
-
+    const user = useSelector((state) => state.player.value);
     const handleSecrate = (e) => {
         e.preventDefault();
-        if(secretValue) {
+        if(secretValue.length===4) {
             setSecret(secretValue);
             dispatch(setUser())
         }
@@ -19,12 +19,23 @@ export const User = ({isDisabled, player}) => {
 
     const handleCheck = (e) => {
         e.preventDefault();
-        if(code) {
+        if(code.length===4) {
             const { bull, cow } = check(secret, code);
             setCode("");
             dispatch(setUser());
             dispatch(setCow(cow));
             dispatch(setBull(bull));
+
+            if(bull!==null) {
+                const score = `${code} : - ${bull} - : - ${cow} -`
+                if(!user) {
+                dispatch(setPlayerOneScore(score))
+                }
+                else {
+                dispatch(setPlayerTwoScore(score))
+                }
+                console.warn(score);
+            }
         }
     }
 

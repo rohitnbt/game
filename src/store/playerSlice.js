@@ -4,6 +4,8 @@ const initialState = {
   value: false,
   bull: null,
   cow: null,
+  playerOneScore: [],
+  playerTowScore: [],
 }
 
 export const playerSlice = createSlice({
@@ -19,9 +21,15 @@ export const playerSlice = createSlice({
     setBull: (state,action) => {
       state.bull = action.payload
     },
+    setPlayerOneScore : (state,action) => {
+      state.playerOneScore.push(action.payload);
+    },
+    setPlayerTwoScore : (state,action) => {
+      state.playerTowScore.push(action.payload);
+    }
   },
 })
 
-export const { setUser, setCow, setBull } = playerSlice.actions
+export const { setUser, setCow, setBull, setPlayerOneScore, setPlayerTwoScore } = playerSlice.actions
 
 export default playerSlice.reducer
