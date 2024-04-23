@@ -13,7 +13,7 @@ export const Result = ({cow, bull, setShow}) => {
         bulls.push(<IconBull key={i} />);
     }
   return (
-    < div className='background' onClick={()=>setShow(false)}>
+    <div className='background' onClick={()=>setShow(false)}>
     <div className='result'>
         <h1 style={{textAlign:"center"}}>Result</h1>
         <div className="animal-outer">
